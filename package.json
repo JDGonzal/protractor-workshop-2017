@@ -31,12 +31,12 @@
   "homepage": "https://github.com/JDGonzal/protractor-workshop-2017#readme",
   "dependencies": {
     "jasmine-spec-reporter": "^4.2.1",
-    "tslint-config-airbnb": "^5.3.0"
+    "protractor": "^5.1.2"
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
-    "protractor": "^5.1.2",
     "typescript": "^2.5.3",
-    "tslint": "^5.7.0"
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.3.0"
   }
 }
