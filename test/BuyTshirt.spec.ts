@@ -1,6 +1,10 @@
 import { $, browser } from 'protractor';
+import { MenuContentPage } from '../src/page';
+import { ProductListPage } from '../src/page';
 
 describe('Buy a t-shirt', () => {
+  const menuContentPage: MenuContentPage = new MenuContentPage();
+  const productListPage: ProductListPage = new ProductListPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -8,10 +12,9 @@ describe('Buy a t-shirt', () => {
   it('then should be bought a t-shirt', async () => {
     await browser.get('http://automationpractice.com/');
     await(browser.sleep(10000));
-    await $('#block_top_menu > ul > li:nth-child(3) > a').click();
+    await menuContentPage.goToTShirtMenu();
     await(browser.sleep(3000));
-    await
-    $('#center_column > ul > li > div > div.left-block > div > a.product_img_link > img').click();
+    await productListPage.goToTShirtImage();
     await(browser.sleep(3000));
     await $('#add_to_cart > button > span').click();
     await(browser.sleep(3000));
