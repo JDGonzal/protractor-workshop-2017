@@ -1,10 +1,14 @@
 import { $, browser } from 'protractor';
-import { MenuContentPage } from '../src/page';
-import { ProductListPage } from '../src/page';
+import { MenuContentPage, 
+  ProductListPage, 
+  ProductDetailPage, 
+  ProductAddedModalPage } from '../src/page';
 
 describe('Buy a t-shirt', () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productListPage: ProductListPage = new ProductListPage();
+  const productDetailPage: ProductDetailPage = new ProductDetailPage();
+  const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -16,11 +20,11 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(3000));
     await productListPage.goToTShirtImage();
     await(browser.sleep(3000));
-    await $('#add_to_cart > button > span').click();
+    await productDetailPage.goToAddToCart();
     await(browser.sleep(3000));
-    await $('[style*="display: block;"] .button-container > a').click();
+    await productAddedModalPage.goToModal();
     await(browser.sleep(3000));
-    await $('.cart_navigation span').click();
+    await productAddedModalPage.goToProceedToCheckoutButton();
     await(browser.sleep(3000));
 
     await $('#email').sendKeys('aperdomobo@gmail.com');
