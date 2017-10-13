@@ -8,13 +8,4 @@ export class ProductAddedModalPage {
   public goToModal(): promise.Promise<void> {
     return this.selectModal.click();
   }
-  
-  private get proceedToCheckoutButton(): ElementFinder {
-    return $('.cart_navigation span');
-  }
-  
-  public goToProceedToCheckoutButton(): promise.Promise<void> {
-    return this.proceedToCheckoutButton.click();
-  }
-  
 }
