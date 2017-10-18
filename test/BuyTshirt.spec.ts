@@ -3,8 +3,9 @@ import { MenuContentPage,
   ProductListPage, 
   ProductDetailPage, 
   ProductAddedModalPage,
-  SummaryStepPage ,
-  SignInStepPage} from '../src/page';
+  SummaryStepPage,
+  SignInStepPage,
+  AddressStepPage} from '../src/page';
 
 describe('Buy a t-shirt', () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
@@ -13,6 +14,7 @@ describe('Buy a t-shirt', () => {
   const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
   const summaryStepPage: SummaryStepPage = new SummaryStepPage();
   const signInStepPage: SignInStepPage = new SignInStepPage();
+  const addressStepPage: AddressStepPage = new AddressStepPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -32,11 +34,11 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(3000));
 
     await signInStepPage.writeEMail('aperdomobo@gmail.com');
-    await $('#passwd').sendKeys('WorkshopProtractor');
-    await $('#SubmitLogin > span').click();
+    await signInStepPage.writePassword('WorkshopProtractor');
+    await signInStepPage.goToSignIn();
     await(browser.sleep(3000));
 
-    await $('#center_column > form > p > button > span').click();
+    await addressStepPage.goToProceedToCheckoutButton());
     await(browser.sleep(3000));
 
     await $('#cgv').click();
