@@ -31,7 +31,7 @@
   "homepage": "https://github.com/JDGonzal/protractor-workshop-2017#readme",
   "dependencies": {
     "jasmine-spec-reporter": "^4.2.1",
-    "protractor": "^5.1.2"
+    "protractor": "^5.3.1"
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
