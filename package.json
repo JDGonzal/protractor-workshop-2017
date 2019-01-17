@@ -32,12 +32,12 @@
   "dependencies": {
     "hoek": "^6.1.2",
     "jasmine-spec-reporter": "^4.2.1",
-    "protractor": "^5.3.1"
+    "protractor": "^5.4.2"
   },
   "devDependencies": {
-    "@types/jasminewd2": "^2.0.3",
-    "typescript": "^2.5.3",
-    "tslint": "^5.7.0",
-    "tslint-config-airbnb": "^5.3.0"
+    "@types/jasminewd2": "^2.0.6",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^2.9.2"
   }
 }
