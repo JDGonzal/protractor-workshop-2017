@@ -1,6 +1,20 @@
 import { $, browser } from 'protractor';
+import { MenuContentPage, 
+  ProductListPage, 
+  ProductDetailPage, 
+  ProductAddedModalPage,
+  SummaryStepPage,
+  SignInStepPage,
+  AddressStepPage} from '../src/page';
 
 describe('Buy a t-shirt', () => {
+  const menuContentPage: MenuContentPage = new MenuContentPage();
+  const productListPage: ProductListPage = new ProductListPage();
+  const productDetailPage: ProductDetailPage = new ProductDetailPage();
+  const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
+  const summaryStepPage: SummaryStepPage = new SummaryStepPage();
+  const signInStepPage: SignInStepPage = new SignInStepPage();
+  const addressStepPage: AddressStepPage = new AddressStepPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -8,24 +22,23 @@ describe('Buy a t-shirt', () => {
   it('then should be bought a t-shirt', async () => {
     await browser.get('http://automationpractice.com/');
     await(browser.sleep(10000));
-    await $('#block_top_menu > ul > li:nth-child(3) > a').click();
+    await menuContentPage.goToTShirtMenu();
     await(browser.sleep(3000));
-    await
-    $('#center_column > ul > li > div > div.left-block > div > a.product_img_link > img').click();
+    await productListPage.goToTShirtImage();
     await(browser.sleep(3000));
-    await $('#add_to_cart > button > span').click();
+    await productDetailPage.goToAddToCart();
     await(browser.sleep(3000));
-    await $('[style*="display: block;"] .button-container > a').click();
+    await productAddedModalPage.goToModal();
     await(browser.sleep(3000));
-    await $('.cart_navigation span').click();
-    await(browser.sleep(3000));
-
-    await $('#email').sendKeys('aperdomobo@gmail.com');
-    await $('#passwd').sendKeys('WorkshopProtractor');
-    await $('#SubmitLogin > span').click();
+    await summaryStepPage.goToProceedToCheckoutButton();
     await(browser.sleep(3000));
 
-    await $('#center_column > form > p > button > span').click();
+    await signInStepPage.writeEMail('aperdomobo@gmail.com');
+    await signInStepPage.writePassword('WorkshopProtractor');
+    await signInStepPage.goToSignIn();
+    await(browser.sleep(3000));
+
+    await addressStepPage.goToProceedToCheckoutButton());
     await(browser.sleep(3000));
 
     await $('#cgv').click();
