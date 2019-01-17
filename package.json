@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/JDGonzal/protractor-workshop-2017#readme",
   "dependencies": {
+    "hoek": "^6.1.2",
     "jasmine-spec-reporter": "^4.2.1",
     "protractor": "^5.3.1"
   },
